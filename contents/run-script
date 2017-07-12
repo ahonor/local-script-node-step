@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# Fail immediately on error or undefined variables
+set -eu
+# Create a temp file for the script text
+declare -r SCRIPT=$(mktemp -t "local-script.XXXX")
+trap 'rm "$SCRIPT"' EXIT; # remove temp file on exit
+# Write the script text to the temp file.
+cat > "$SCRIPT" <<< "$RD_CONFIG_SCRIPT"
+# Make the script executable
+chmod +x "$SCRIPT"
+# Execute the script with arguments
+exec "$SCRIPT" "${RD_CONFIG_ARGUMENTS:-}"
+# Done

@@ -1,0 +1,26 @@
+name: nixy-local-script
+rundeckPluginVersion: 1.2
+author: (C) Alex Honor
+date: 07/11/2017
+version: 1.0.0
+providers:
+    - name: nixy-local-script-step
+      service: WorkflowNodeStep
+      title: 'Local Script'
+      description:  Run a script locally on the server per node
+      plugin-type: script
+      script-interpreter: /usr/bin/env bash
+      script-file: run-script
+      script-args: 
+      config:
+        - name: script
+          title: Script
+          type: String
+          required: true
+          renderingOptions:          
+            displayType: CODE
+            codeSyntaxMode: shell
+        - name: arguments
+          title: Arguments
+          type: String
+          required: false
