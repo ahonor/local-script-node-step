@@ -10,5 +10,5 @@ cat > "$SCRIPT" <<< "$RD_CONFIG_SCRIPT"
 # Make the script executable
 chmod +x "$SCRIPT"
 # Execute the script with arguments
-exec "$SCRIPT" "${RD_CONFIG_ARGUMENTS:-}"
+exec "$SCRIPT" ${RD_CONFIG_ARGUMENTS:-}
 # Done
